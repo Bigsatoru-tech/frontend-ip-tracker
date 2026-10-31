@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visitor Info</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="hero">
+    <h1>Welcome 👋</h1>
+    <p>Just browsing? We already know a bit about you.</p>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <button class="close" id="closeBtn">&times;</button>
+      <h2>This is you</h2>
+
+      <div class="loader" id="loader">Fetching your info...</div>
+
+      <ul class="info" id="info" hidden>
+        <li><span>IP Address</span><strong id="ip">-</strong></li>
+        <li><span>Location</span><strong id="location">-</strong></li>
+        <li><span>Browser</span><strong id="browser">-</strong></li>
+        <li><span>OS</span><strong id="os">-</strong></li>
+        <li><span>Device</span><strong id="device">-</strong></li>
+        <li><span>Visited At</span><strong id="visitedAt">-</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
