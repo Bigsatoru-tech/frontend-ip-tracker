@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin: Visits</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <main class="admin">
+    <header class="admin-head">
+      <h1>Saved Visits</h1>
+      <div class="admin-actions">
+        <span id="count" class="count"></span>
+        <button id="refreshBtn" class="btn">Refresh</button>
+      </div>
+    </header>
+
+    <p id="status" class="status">Loading...</p>
+
+    <div class="table-wrap">
+      <table id="table" hidden>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>IP Address</th>
+            <th>Location</th>
+            <th>Browser</th>
+            <th>OS</th>
+            <th>Device</th>
+            <th>Page</th>
+            <th>Visited At</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

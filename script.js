@@ -1,8 +1,8 @@
-const API_URL = "/api/visit"; // change to Sir Kelvin's real endpoint
-
+// Backend address (FastAPI). Change this if the backend runs on another port or host.
+const API_URL = "http://127.0.0.1:8000/visit";
 const $ = (id) => document.getElementById(id);
 
-// Basic device/browser detection from the user agent
+// Browser-side detection, only used for the demo fallback
 function getDeviceInfo() {
   const ua = navigator.userAgent;
 
@@ -22,23 +22,18 @@ function getDeviceInfo() {
 
   const type = /Mobi|Android|iPhone/.test(ua) ? "Mobile" : "Desktop";
 
-  return { browser, os, type, userAgent: ua };
+  return { browser, os, type };
 }
 
+// Fills the pop-up using the backend's flat response format
 function showPopup(data) {
-  $("ip").textContent = data.ip || "-";
-
-  const loc = data.location || {};
-  $("location").textContent =
-    [loc.city, loc.region, loc.country].filter(Boolean).join(", ") || "-";
-
-  const dev = data.device || {};
-  $("browser").textContent = dev.browser || "-";
-  $("os").textContent = dev.os || "-";
-  $("device").textContent = dev.type || "-";
-
-  $("visitedAt").textContent = data.visitedAt
-    ? new Date(data.visitedAt).toLocaleString()
+  $("ip").textContent = data.ip_address || "-";
+  $("location").textContent = data.location || "-";
+  $("browser").textContent = data.browser || "-";
+  $("os").textContent = data.os || "-";
+  $("device").textContent = data.device || "-";
+  $("visitedAt").textContent = data.visited_at
+    ? new Date(data.visited_at).toLocaleString()
     : "-";
 
   $("loader").hidden = true;
@@ -47,24 +42,26 @@ function showPopup(data) {
 
 async function trackVisit() {
   $("overlay").classList.add("show");
-  const device = getDeviceInfo();
 
   try {
     const res = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ device }),
+      body: JSON.stringify({ page_path: window.location.pathname }),
     });
-    if (!res.ok) throw new Error("Request failed");
+    if (!res.ok) throw new Error("Request failed: " + res.status);
     showPopup(await res.json());
   } catch (err) {
-    // Backend not ready yet? Show demo data so the UI still works
+    // Backend offline or blocked by CORS? Show demo data so the UI still works
     console.warn("Using demo data:", err.message);
+    const device = getDeviceInfo();
     showPopup({
-      ip: "102.89.0.0 (demo)",
-      location: { city: "Port Harcourt", region: "Rivers", country: "Nigeria" },
-      device,
-      visitedAt: new Date().toISOString(),
+      ip_address: "102.89.0.0 (demo)",
+      location: "Port Harcourt, Rivers, Nigeria",
+      browser: device.browser,
+      os: device.os,
+      device: device.type,
+      visited_at: new Date().toISOString(),
     });
   }
 }
