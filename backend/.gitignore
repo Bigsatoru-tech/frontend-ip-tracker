@@ -1,0 +1,10 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.db
+*.mmdb
+.pytest_cache/
+test_visits.db
+visits.db
