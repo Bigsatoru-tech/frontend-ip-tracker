@@ -1,4 +1,4 @@
-const ADMIN_URL = "https://visitor-tracker-api.onrender.com/visits"; // GET endpoint
+const ADMIN_URL = "https://visitor-tracker-api.onrender.com/api/visits"; // GET endpoint
 
 const $ = (id) => document.getElementById(id);
 
