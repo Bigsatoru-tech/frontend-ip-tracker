@@ -1,5 +1,5 @@
 // Backend address (FastAPI). Change this if the backend runs on another port or host.
-const API_URL = "https://visitor-tracker-api.onrender.com/visit";
+const API_URL = "https://visitor-tracker-api.onrender.com/api/visit";
 const $ = (id) => document.getElementById(id);
 
 // Browser-side detection, only used for the demo fallback
