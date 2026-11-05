@@ -66,3 +66,82 @@ body {
 .info li:last-child { border-bottom: none; }
 .info span { color: #94a3b8; }
 .info strong { text-align: right; }
+/* ---------- ADMIN ---------- */
+.overlay { z-index: 10; }
+#adminOverlay { z-index: 30; }
+
+.admin-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.admin-btn:hover { border-color: #38bdf8; color: #38bdf8; }
+
+.popup.wide { max-width: 900px; max-height: 85vh; overflow-y: auto; }
+
+.btn {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { opacity: 0.9; }
+.btn.small { padding: 6px 16px; font-size: 0.9rem; }
+.btn.ghost { background: transparent; color: #94a3b8; border: 1px solid #334155; }
+
+#keyView input {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+#keyView input:focus { outline: none; border-color: #38bdf8; }
+
+.hint { color: #94a3b8; }
+.error { color: #f87171; min-height: 1.4em; margin-bottom: 8px; }
+.status { color: #94a3b8; padding: 12px 0; }
+.status.error { color: #f87171; }
+
+.list-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+}
+.list-actions { display: flex; gap: 8px; }
+
+.table-wrap { overflow-x: auto; }
+.table-wrap table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.table-wrap th,
+.table-wrap td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #334155;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-wrap th {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.table-wrap tbody tr:hover { background: #243449; }

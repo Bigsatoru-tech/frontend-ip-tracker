@@ -7,11 +7,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <button class="admin-btn" id="adminBtn">Admin</button>
+
   <main class="hero">
     <h1>Welcome 👋</h1>
     <p>Just browsing? We already know a bit about you.</p>
   </main>
 
+  <!-- VISITOR POP-UP -->
   <div class="overlay" id="overlay">
     <div class="popup">
       <button class="close" id="closeBtn">&times;</button>
@@ -27,6 +30,38 @@
         <li><span>Device</span><strong id="device">-</strong></li>
         <li><span>Visited At</span><strong id="visitedAt">-</strong></li>
       </ul>
+    </div>
+  </div>
+
+  <!-- ADMIN POP-UP -->
+  <div class="overlay" id="adminOverlay">
+    <div class="popup wide">
+      <button class="close" id="adminClose">&times;</button>
+      <h2>Admin</h2>
+
+      <form id="keyView">
+        <p class="hint">Enter the API key to view visitors.</p>
+        <input type="password" id="keyInput" placeholder="API key" autocomplete="off" required />
+        <p class="error" id="keyError"></p>
+        <button type="submit" class="btn">Unlock</button>
+      </form>
+
+      <div id="listView" hidden>
+        <div class="list-bar">
+          <span id="visitCount"></span>
+          <div class="list-actions">
+            <button type="button" class="btn small" id="refreshBtn">Refresh</button>
+            <button type="button" class="btn small ghost" id="lockBtn">Lock</button>
+          </div>
+        </div>
+        <p class="status" id="adminStatus"></p>
+        <div class="table-wrap">
+          <table id="visitTable" hidden>
+            <thead id="visitHead"></thead>
+            <tbody id="visitBody"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
