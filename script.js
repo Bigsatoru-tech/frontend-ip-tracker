@@ -1,5 +1,5 @@
 // Base address of the backend. Keep the /api ending, change the front part when you get Sir Kelvin's real address.
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = "https://visitor-tracker-api.onrender.com/api";
 const API_URL = API_BASE + "/visit";
 const ADMIN_URL = API_BASE + "/visits?limit=100";
 
